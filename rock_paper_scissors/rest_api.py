@@ -1,6 +1,10 @@
-""" This module expose a rest api to play a game """
+"""
+This module expose a rest api to play a game
+"""
 from connexion import App
 from waitress import serve
+
+from rock_paper_scissors import util
 
 APP = App(__name__, specification_dir='swagger/')
 
@@ -10,9 +14,10 @@ def match(player):
     """
     Start a match vs a computer and return the output
     """
-    computer = 'Rock' # TODO: add logic to get random choise
-    match_output =  1 # TODO: resolve the match
+    computer = util.get_computer()
+    match_output = util.match(player, computer)
     match_output_str = ''
+
     if match_output == 1:
         match_output_str = 'The player win'
     elif match_output == 2:
