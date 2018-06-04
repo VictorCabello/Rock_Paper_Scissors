@@ -23,10 +23,27 @@ http://nose.readthedocs.io/en/latest/usage.html
 
 ### Coverage
 
-In addition when we run the unit test part of this project a coverage report is generated under the coverage folder.
+In addition, when we run the unit test part of this project a coverage report is generated under the coverage folder.
 
 
 We can define coverage like the number of lines that are cover by the unit test cases and additional information could be found in the next link:
 
 https://coverage.readthedocs.io/en/coverage-4.5.1/
+
+## RestAPI
+
+This application contains an restapi to expose the logic of the game. To run this service the first step need it is to install on our system and we can do that with the following command:
+
+```
+$ python setup.py develop
+```
+
+After run the previous command we can use *rock_paper_scissors_restapi* command to start the service as the following example:
+
+```
+$ rock_paper_scissors_restapi
+```
+
+The service will run on the port 8080 and it will be accessible on the url *http://localhost:8080/match* but a swagger is ready to use on *http://localhost:8080/ui*.
+
 
