@@ -1,6 +1,7 @@
 """
 The main logic of the game are described in this modeule
 """
+from random import randint
 OPTIONS = ["Rock", "Scissors", "Paper"]
 
 def verify(option):
@@ -16,7 +17,11 @@ def verify(option):
             ValueError: If `option` is not on `OPTIONS`
 
     """
-    pass
+    if option not in OPTIONS:
+        raise ValueError('The function only accept the follwing' + \
+                         str(OPTIONS))
+
+    return True
 
 
 def match(player1, player2):
@@ -32,11 +37,19 @@ def match(player1, player2):
 
 
     """
-    pass
+    verify(player1)
+    verify(player2)
+
+    p_1 = OPTIONS.index(player1)
+    p_2 = OPTIONS.index(player2)
+
+    difference = (p_2 - p_1) % 3
+
+    return difference
 
 def get_computer():
     """
         Returns:
             A random valid option for the game
     """
-    pass
+    return OPTIONS[randint(0, 2)]
